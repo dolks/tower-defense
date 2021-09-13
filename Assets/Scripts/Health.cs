@@ -8,20 +8,17 @@ public class Health : MonoBehaviour
     [SerializeField] AudioClip deathSound;
     [SerializeField] float deathSoundVolume = 10f;
 
-    private void OnTriggerEnter2D(Collider2D collider)
+    private void Update()
     {
-        DamageDealer damageDealer = collider.gameObject.GetComponent<DamageDealer>();
-        ProcessHit(damageDealer);
-    }
-
-    private void ProcessHit(DamageDealer damageDealer)
-    {
-        health -= damageDealer.GetDamage();
         if (health <= 0)
         {
             Die();
         }
     }
+
+    public int GetHealth() { return health; }
+
+    public void SetHealth(int newHealth) { health = newHealth; }
 
     private void Die()
     {

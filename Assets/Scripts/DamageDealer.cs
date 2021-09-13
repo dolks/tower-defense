@@ -7,4 +7,15 @@ public class DamageDealer : MonoBehaviour
     [SerializeField] int damage = 100;
 
     public int GetDamage() { return damage; }
+
+    public void DealDamage(GameObject objectHit)
+    {
+        Health objectHealth = objectHit.GetComponent<Health>();
+        if (objectHealth != null)
+        {
+            int currentHealth = objectHealth.GetHealth();
+            objectHealth.SetHealth(currentHealth - damage);
+        }
+        return;
+    }
 }
