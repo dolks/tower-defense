@@ -180,3 +180,4 @@ MonoBehaviour:
   health: 100
   deathSound: {fileID: 8300000, guid: 529a64b3e352b42c08fb45d0006735b8, type: 3}
   deathSoundVolume: 10
+  deathVFXPrefab: {fileID: 1906222994913036, guid: 740c2b3187d56c341b8cb78e8aa925c5, type: 3}
