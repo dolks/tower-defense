@@ -29,4 +29,9 @@ public class StarScript : MonoBehaviour
         }
         starText.text = stars.ToString();
     }
+
+    public int GetCurrentStarsInt()
+    {
+        return stars;
+    }
 }
