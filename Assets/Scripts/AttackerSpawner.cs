@@ -5,21 +5,16 @@ using UnityEngine;
 public class AttackerSpawner : MonoBehaviour
 {
     bool spawn = true;
-    [SerializeField] GameObject attackerPrefab;
+    [SerializeField] Attacker attackerPrefab;
     // Start is called before the first frame update
     IEnumerator Start()
     {
         while (spawn)
         {
             float secondsBeforeNextSpawn = Random.Range(1f, 5f);
-            Instantiate(attackerPrefab, transform.position, transform.rotation);
             yield return new WaitForSeconds(secondsBeforeNextSpawn);
+            Attacker attacker = Instantiate(attackerPrefab, transform.position, transform.rotation) as Attacker;
+            attacker.transform.parent = transform;
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
