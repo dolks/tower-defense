@@ -9,12 +9,12 @@ public class Projectile : MonoBehaviour
     void Update()
     {
         transform.Translate(Vector3.right * speed * Time.deltaTime);
-        transform.RotateAround(transform.position, transform.right, speed * Time.deltaTime * 90f);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.GetComponent<MainPlayArea>()) { return; }
+        if (collision.gameObject.GetComponent<MainPlayArea>()
+            || collision.gameObject.GetComponent<Defender>()) { return; }
 
         gameObject.GetComponent<DamageDealer>().DealDamage(collision.gameObject);
         Destroy(gameObject);
