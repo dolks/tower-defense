@@ -21,6 +21,15 @@ public class Health : MonoBehaviour
 
     public void SetHealth(int newHealth) { health = newHealth; }
 
+    public void DealDamage(int damage)
+    {
+        health -= damage;
+        if (health <= 0)
+        {
+            Die();
+        }
+    }
+
     private void Die()
     {
         Destroy(gameObject);
