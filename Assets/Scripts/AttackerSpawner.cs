@@ -5,7 +5,7 @@ using UnityEngine;
 public class AttackerSpawner : MonoBehaviour
 {
     bool spawn = true;
-    [SerializeField] Attacker attackerPrefab;
+    [SerializeField] Attacker[] attackerPrefabs;
     // Start is called before the first frame update
     IEnumerator Start()
     {
@@ -13,8 +13,14 @@ public class AttackerSpawner : MonoBehaviour
         {
             float secondsBeforeNextSpawn = Random.Range(1f, 5f);
             yield return new WaitForSeconds(secondsBeforeNextSpawn);
-            Attacker attacker = Instantiate(attackerPrefab, transform.position, transform.rotation) as Attacker;
-            attacker.transform.parent = transform;
+            Spawn();
         }
+    }
+
+    private void Spawn()
+    {
+        int randomIndex = Random.Range(0, attackerPrefabs.Length);
+        Attacker attacker = Instantiate(attackerPrefabs[randomIndex], transform.position, transform.rotation);
+        attacker.transform.parent = transform;
     }
 }
