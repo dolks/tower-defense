@@ -43,4 +43,14 @@ public class Attacker : MonoBehaviour
             health.DealDamage(damage);
         }
     }
+
+    private void Awake()
+    {
+        FindObjectOfType<LevelController>().AddEnemySpawn();
+    }
+
+    private void OnDestroy()
+    {
+        FindObjectOfType<LevelController>().AddEnemyKill();
+    }
 }

@@ -23,4 +23,6 @@ public class AttackerSpawner : MonoBehaviour
         Attacker attacker = Instantiate(attackerPrefabs[randomIndex], transform.position, transform.rotation);
         attacker.transform.parent = transform;
     }
+
+    public void StopSpawing() { spawn = false; }
 }
