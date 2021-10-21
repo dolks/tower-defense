@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 
 public class Lives : MonoBehaviour
 {
@@ -24,10 +23,10 @@ public class Lives : MonoBehaviour
     public void SubtractLives(int amount)
     {
         lives -= amount;
-        if (lives < 0)
+        if (lives <= 0)
         {
             lives = 0;
-            SceneManager.LoadScene("Lose Screen");
+            FindObjectOfType<LevelController>().Lose();
         }
         livesText.text = lives.ToString();
     }
