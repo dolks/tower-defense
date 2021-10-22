@@ -23,7 +23,7 @@ public class LevelController : MonoBehaviour
 
     void Update()
     {
-        if (levelFinished) { return; }
+        if (levelFinished || FindObjectOfType<GameTimer>() == null) { return; }
         if (enemiesKilledSoFar == enemiesSpawned
             && FindObjectOfType<GameTimer>().IsFinished())
         {
@@ -62,6 +62,11 @@ public class LevelController : MonoBehaviour
         SceneManager.LoadScene("Title Screen");
     }
 
+    public void LoadOptionsScreen()
+    {
+        SceneManager.LoadScene("Options Screen");
+    }
+
     public void LoadLevel1()
     {
         SceneManager.LoadScene("Level 1");
@@ -78,5 +83,4 @@ public class LevelController : MonoBehaviour
         FindObjectOfType<GameTimer>().GetComponent<Slider>().value = 0;
         Time.timeScale = 0;
     }
-
 }
