@@ -10,6 +10,7 @@ public class Lives : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        lives -= (int)Mathf.Floor(10 * PlayerPrefsController.GetDifficulty());
         livesText = GetComponent<Text>();
         livesText.text = lives.ToString();
     }

@@ -532,7 +532,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e39a2a20ea0704e408c6c57023af8e09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lives: 1
+  lives: 30
 --- !u!114 &598488563
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1006,7 +1006,7 @@ GameObject:
   - component: {fileID: 1737139601}
   - component: {fileID: 1737139602}
   m_Layer: 5
-  m_Name: Slider
+  m_Name: Game Timer Slider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1097,7 +1097,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3163b4da071814ad9947aea520340cab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelTime: 300
+  levelTime: 50
 --- !u!1 &1845456846
 GameObject:
   m_ObjectHideFlags: 0

@@ -16,4 +16,14 @@ public class PlayerPrefsController : MonoBehaviour
     {
         return PlayerPrefs.GetFloat(MASTER_VOLUME);
     }
+
+    public static void SetDifficulty(float difficulty)
+    {
+        PlayerPrefs.SetFloat(DIFFICULTY, difficulty);
+    }
+
+    public static float GetDifficulty()
+    {
+        return PlayerPrefs.GetFloat(DIFFICULTY);
+    }
 }
