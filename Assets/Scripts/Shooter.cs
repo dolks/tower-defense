@@ -6,7 +6,7 @@ public class Shooter : MonoBehaviour
 {
     [SerializeField] GameObject projectile, gun;
     AttackerSpawner spawnerInLane;
-    Animator animator; 
+    Animator animator;
 
     private void Start()
     {
@@ -16,7 +16,8 @@ public class Shooter : MonoBehaviour
 
     public void Fire()
     {
-        Instantiate(projectile, gun.transform.position, Quaternion.identity);
+        GameObject newProjectile = Instantiate(projectile, gun.transform.position, Quaternion.identity);
+        newProjectile.transform.parent = gun.transform;
     }
 
     private void Update()

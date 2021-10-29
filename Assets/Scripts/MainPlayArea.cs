@@ -4,7 +4,18 @@ using UnityEngine;
 
 public class MainPlayArea : MonoBehaviour
 {
-    [SerializeField] Defender defender;
+    Defender defender;
+    GameObject defenderParent;
+    const string DEFENDER_PARENT = "Defenders";
+
+    private void Start()
+    {
+        defenderParent = GameObject.Find(DEFENDER_PARENT);
+        if (!defenderParent)
+        {
+            defenderParent = new GameObject(DEFENDER_PARENT);
+        }
+    }
 
     private void OnMouseDown()
     {
@@ -12,7 +23,6 @@ public class MainPlayArea : MonoBehaviour
         if (defender)
         {
             AttemptToPlaceDefenderAt(worldPos);
-
         }
     }
 
@@ -41,7 +51,8 @@ public class MainPlayArea : MonoBehaviour
         int starCost = defender.GetStarCost();
         if (starScript.GetCurrentStarsInt() >= starCost)
         {
-            Instantiate(defender, worldPos, Quaternion.identity);
+            Defender newDefender = Instantiate(defender, worldPos, Quaternion.identity);
+            newDefender.transform.parent = defenderParent.transform;
             starScript.SubtractStars(starCost);
         }
     }
